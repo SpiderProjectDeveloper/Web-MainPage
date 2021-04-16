@@ -1,0 +1,34 @@
+<div id='login_page'>
+	<h1 id='text-login-page-title'>Web SP Login</h1>
+
+	<div class='centered-container'>
+		<label for="user" id='text-user'>User:</label><br/>
+		<input type='text' name="user" id="user"><br/><br/>
+		<label for="pass" id='text-pass'>Password:</label><br/>
+		<input type='password' name="pass" id="pass">
+
+		<div><div id='connectionError'><span id='text-connection-error'></span></div></div>
+		<div><div id='credentialsError'><span id='text-credentials-error'></span></div></div>
+		<div><div id='userNameError'><span id='text-user-name-error'></span></div></div>
+		<div><div id='passError'><span id='text-pass-error'></span></div></div>
+
+		<div>
+			<div id='login' class='button'>
+				<div id='text-login-button'>Login</div>
+			</div>
+		</div>
+		
+		<div id='login-loader'></div>
+	</div>
+</div>
+
+<div id='main_page'>
+	<div id='projectListConnectionError'><span id='text-project-list-connection-error'></span></div>
+	<!--<h1 id='text-index-page-title'>Web SP Main Menu</h1>-->
+	<div class='centered-container'>
+		<h2 id='text-projects'>PROJECTS</h2>
+		<div id='project-loader'></div>
+		<div id='projects'>
+		</div>
+	</div>
+</div>

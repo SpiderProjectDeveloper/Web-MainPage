@@ -1,0 +1,118 @@
+	* { box-sizing:border-box; margin:0px }
+
+	body { font-family:arial; }
+
+	h1, h2 { margin-top:24px; text-align:center; color:#7f7f7f; }
+	
+	div { box-sizing:border-box; }
+
+	input { border:1px solid gray; border-radius:8px; padding:8px; font-size:18px; }
+
+	label { font-family:verdana; color:#7f7f7f; }
+
+	hr { color: #efefef; }
+
+	.button { display:inline-block; margin:28px 0px 12px 0px; width:25%; padding:12px; border:1px solid gray; border-radius:4px; 
+		text-align:center; cursor:pointer; font-family:verdana; }
+	.button:hover { background-color:#cfdfff; }
+
+	#text-login-page-title {
+		margin-bottom:42px;
+	}
+
+	#connectionError, #credentialsError, #userNameError, #passError, #projectConnectionError { 
+		display:none; margin:28px 0px 12px 0px; width:40%; padding:8px; border-radius:8px; background-color:#efafaf; 
+		color:#4f2f2f; font-style:italic; }
+
+	@media only screen and (max-width: 800px) {
+		.button { width:50%; }
+		#errorMessage { width:50%; }
+	}
+	@media only screen and (max-width: 600px) {
+		.button { width:80%; }
+		#errorMessage { width:80%; }
+	}
+
+	.button a { color:#202020; font-size:110%; font-weight:bold; }
+
+	#header {
+		position:relative; display:block; width:100%; padding:8px; background-color:#4f4f4f; text-align:right; color:white; font-size:14px; font-weight:normal;
+	}
+	#header::after {
+	    content: ""; clear: both; display: table;
+	}
+	#header a {
+		color: white; font-size:14px; font-weight:normal; border-bottom:1px dotted white;
+	}
+	#header-lang {
+		cursor:pointer; display:block; float:left; width:20%; min-width:20%; max-width:20%; padding:8px; text-align:left;
+	}
+	#text-lang {
+		border-bottom:1px dotted white;
+	}
+	#header-logged {
+		display:inline-block; float:left; width:80%; min-width:80%; max-width:80%; padding:8px; text-align:right;
+	}
+	#text-user-name, #text-not-logged-in {
+		color:#dfdfdf; font-size:110%; font-variant:small-caps; font-style:normal;
+	}
+
+	#text-logout {
+		cursor:pointer;
+	}
+
+	#projects { border:1px dotted #afafaf; border-radius:2px; padding:4px; overflow-y:auto; height:60vh; }
+
+	.project {
+		cursor:pointer; padding:12px 0px 18px 0px; border-bottom:1px dotted gray;
+	} 
+	.project-title {
+		cursor:pointer; color:#7f7f7f; padding:0px 0px 0px 0px; font-size:110%; 
+	} 
+	.project-menu {
+		display:none; padding:4px; line-height:160%;
+	} 
+	.project-menu-title {
+		margin:14px 2px 2px 2px; cursor:default;  
+		font-size:110%; font-variant:small-caps; font-weight:normal; text-decoration:none; color: #4f4f4f;
+	} 
+	.project-menu-input, .project-menu-input-currently-edited {
+		font-size:12px !important; margin:1px 4px 1px 4px; width:10em; padding-left:2em;
+	}
+	.project-menu-input-currently-edited {
+		border: 2px solid #dfdfdf; background-color:#f0f0f0;
+	}
+	.project-menu-a {
+		font-size:100%; margin:14px; font-variant:small-caps; font-weight:normal; text-decoration:none; color:#3498db;
+	} 
+	a { font-size:100%; text-decoration:none; color:#3498db; }
+
+	.project-menu-calendar {
+		position:relative; left:1.5em; background-color: #efefef;
+	}
+	.project-menu-calendar-container {
+		display:none; text-align:center;
+	}
+
+	#main_page { text-align:center; display:none; }
+	#login_page { text-align:center; display:block; }
+
+	.centered-container { width:100%; padding-left:20%; padding-right:20%; text-align:center; }
+	@media only screen and (max-width: 739px) {
+		.centered-container { width:100%; padding-left:10%; padding-right:10%; }
+	}
+	@media only screen and (max-width: 599px) {
+		.centered-container { width:100%; padding-left:1%; padding-right:1%; }
+	}
+
+
+	.loader {
+		display:inline-block; width: 40px; height: 40px;
+		border: 8px solid #e0e0e0;  border-top: 8px solid #9fcfcf; border-radius: 50%;
+		animation: spin 2s linear infinite;
+	}
+
+	@keyframes spin {
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(360deg); }
+	}

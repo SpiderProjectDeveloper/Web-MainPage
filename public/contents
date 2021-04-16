@@ -1,0 +1,49 @@
+﻿{
+  "Lang" : "ru",
+  "errcode" : 0,
+  "User" : {
+    "Code" : "user",
+    "Name" : "User" 
+  },
+  "Projects" : [
+    "01km_exp.001.sprj",
+    "01km_exp.002.sprj",
+    "01km_exp.003.sprj",
+    "01km_exp.004.sprj",
+    "01km_exp.005.sprj",
+    "01km_opt.001.sprj",
+    "01km_opt.002.sprj",
+    "01km_opt.003.sprj",
+    "01km_opt.004.sprj",
+    "01km_opt.005.sprj",
+    "01km_pes.001.sprj",
+    "01km_pes.002.sprj",
+    "01km_pes.003.sprj",
+    "01km_pes.004.sprj",
+    "01km_pes.005.sprj",
+    "074.001.sprj",
+    "074.002.sprj",
+    "20201208FM_ARC_DigitalHub.001.sprj",
+    "anewone.001.sprj",
+    "asta02.001.sprj",
+    "Building.001.sprj",
+    "Building.002.sprj",
+    "Building.003.sprj",
+    "Building.004.sprj",
+    "Building.005.sprj",
+    "Building.006.sprj",
+    "Building.007.sprj",
+    "Constr_Invest.001.sprj",
+    "cpc.002.sprj",
+    "cpc_с_русскими_буквами.002.sprj",
+    "Investment.001.sprj",
+    "PP4.001.sprj",
+    "sava2021-08-04-2021.1000.sprj",
+    "SD.001.sprj" 
+  ],
+  "Actions" : [
+    { "Command": "OpenGanttOper", "Name": "Открыть Гантт Работ" },
+    { "Command": "OpenDashboard", "Name": "Открыть Дэшборд" },
+    { "Command": "OpenModel", "Name": "Открыть 3D-модель" } 
+  ] 
+}
