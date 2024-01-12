@@ -20,6 +20,9 @@ module.exports = {
 			app.get('/.get_project_props', (req, res) => {
 			  res.sendFile(path.resolve(__dirname, 'public/get_project_props'));
 			});
+			app.get('/.get_gantt_structs', (req, res) => {
+			  res.sendFile(path.resolve(__dirname, 'public/get_gantt_structs'));
+			});
 			app.post('/.login', (req, res) => {
 				res.send('LWHLEWRIUREWILUTERUITHERUIHTLIEKJERBFJEBERVKERJKERBKHERKJERHEK'); 
 			});

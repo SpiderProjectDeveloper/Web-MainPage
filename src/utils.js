@@ -27,18 +27,33 @@ var _texts = {
 	'ru':'Не удалось загрузить список проектов. Проверьте соединение и попробуйте снова... ' },
 	'text-project-list-error': { 'en': '"Password" field contains an invalid value. Please, try again...', 
 	'ru':'Поле "Пользователь" содержит недопустимое значение. Пожалуйста попытайтесь снова...' },
+	'text-ifcimport': { 
+		'en': 'Create A New Project out of an .IFC file', 
+		'ru': 'Создать проект из .IFC-файла' 
+	},
+	'text-ifccreateproject': { 
+		'en': 'Create a New Project and Merge it with an .IFC file', 
+		'ru': 'Создать проект и связать его с .IFC-файлом' 
+	},
 };
           
 export var _lang = null;
 
 var _dynamicTexts = {
 	'gantt': { 'en': 'Gantt Chart', 'ru': 'Диаграмма Гантта' },
-	'dashboard': { 'en': 'Dashboard', 'ru': 'Дешборд' },
+	'dashboard': { 'en': 'Dashboard', 'ru': 'Дэшборд' },
 	'input': { 'en': 'Performance Input', 'ru': 'Ввод учета' },
-	'ifc': { 'en': '3D Viewer (IFC/wexbim)', 'ru': '3D модель (IFC/wexbim)' }
+	'ifc': { 'en': '3D Viewer (IFC)', 'ru': '3D модель (IFC)' },
+	'ifccreateproject': { 'en': 'Merge with an .IFC file', 'ru': 'Связать проект с .IFC-файлом' },
+	'sdoc': { 'en': 'SP Document (SDoc)', 'ru': 'Документ SP (SDoc)' },
+	'get-gantt-structs': {
+		'en': '[ show available structs ]', 
+		'ru': '[ показать доступные структуры ]' 
+	}
 }
 
-var _dateFormat = {
+var _dateFormat = 
+{
 	timeDelim: ':', 
 	dateDelim: '.', 
 	dateFormat: "DMY"
@@ -48,7 +63,8 @@ export function getDynamicText( id ) {
 	return _dynamicTexts[id][_lang];	
 }
 
-function handleLangTexts(lang) {
+function handleLangTexts(lang) 
+{
 	for( let key in _texts ) {
 		let el = document.getElementById(key);
 		if( !el ) {
@@ -73,7 +89,8 @@ function handleLangTexts(lang) {
 	}
 }
 
-export function handleLang( setLang = null) {
+export function handleLang( setLang = null) 
+{
 	let langEl = document.getElementById('header-lang');
 	if( !langEl ) {
 		return;
@@ -131,7 +148,8 @@ export function handleLang( setLang = null) {
 }
 
 
-export function setDateFormat( dateFormat ) {
+export function setDateFormat( dateFormat ) 
+{
 	if( 'timeDelim' in dateFormat && dateFormat.timeDelim !== null && dateFormat.timeDelim.length > 0 ) {
 		_dateFormat.timeDelim = dateFormat.timeDelim;
 	}
@@ -143,7 +161,8 @@ export function setDateFormat( dateFormat ) {
 	}
 }
 
-export function setCookie( cname, cvalue, exminutes=null ) {
+export function setCookie( cname, cvalue, exminutes=null ) 
+{
 	if( exminutes === null ) {
 		document.cookie = `${cname}=${cvalue}; path=/`;
 	}

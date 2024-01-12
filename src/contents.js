@@ -2,7 +2,8 @@ import { _globals } from './globals.js';
 import { deleteCookie } from './utils.js';
 import { loadMainContents, unloadMainContents } from './main.js';
 
-export function displayLoader( loaderElId, status ) {
+export function displayLoader( loaderElId, status ) 
+{
 	let loaderEl = document.getElementById(loaderElId);
 	if( loaderEl ) {
 		if( status ) {
@@ -13,7 +14,8 @@ export function displayLoader( loaderElId, status ) {
 	}
 }
 
-export function displayErrorMessage( errorMessageId, display=true ) {
+export function displayErrorMessage( errorMessageId, display=true ) 
+{
 	let id = document.getElementById(errorMessageId);
 	if( id ) {
 		if( display ) {
@@ -24,7 +26,8 @@ export function displayErrorMessage( errorMessageId, display=true ) {
 	}	
 }
 
-export function displayCurrentPage( checkAuthorized = false ) {
+export function displayCurrentPage( checkAuthorized = false ) 
+{
 	if( checkAuthorized && _globals.user !== null && _globals.sessId !== null ) {
 		let xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
@@ -45,14 +48,15 @@ export function displayCurrentPage( checkAuthorized = false ) {
 		}
 	}
 	xhttp.open("GET", '/.check_authorized', true);
-	xhttp.send('');	
+	xhttp.send();	
 } else {
 		displayPage();
 	}
 }
 
 
-function displayPage() {
+function displayPage() 
+{
 	let _page =	(_globals.user !== null && _globals.sessId !== null ) ? 'main' : 'login';
 
 	if( _page === 'login' ) {
@@ -73,7 +77,8 @@ function displayPage() {
 }
 
 
-export function clearErrorMessages() {
+export function clearErrorMessages() 
+{
 	displayErrorMessage('projectListConnectionError', false);
 	displayErrorMessage('connectionError', false);
 	displayErrorMessage('credentialsError', false);

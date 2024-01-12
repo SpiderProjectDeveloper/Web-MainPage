@@ -1,0 +1,43 @@
+﻿{
+  "Activity" : [
+    {
+      "Code" : "struct_main",
+      "Name" : "Структура 1",
+      "RespStruct" : "Да",
+      "f_IncNewObjectsAuto" : "Да",
+      "f_UseFilter" : "Нет",
+      "UpdateNameGroups" : "Нет",
+      "SkipBlankValues" : "Нет",
+      "Sort" : "Нет",
+      "f_FilterType" : "" 
+    } 
+  ],
+  "Resource" : [
+    {
+      "Code" : "struct_main",
+      "Name" : "Структура 1",
+      "RespStruct" : "Да",
+      "f_IncNewObjectsAuto" : "Да",
+      "f_UseFilter" : "Нет",
+      "UpdateNameGroups" : "Нет",
+      "SkipBlankValues" : "Нет",
+      "Sort" : "Нет",
+      "f_FilterType" : "" 
+    } 
+  ],
+  "Material" : [
+    {
+      "Code" : "struct_main",
+      "Name" : "Структура 1",
+      "RespStruct" : "Да",
+      "f_IncNewObjectsAuto" : "Да",
+      "f_UseFilter" : "Нет",
+      "UpdateNameGroups" : "Нет",
+      "SkipBlankValues" : "Нет",
+      "Sort" : "Нет",
+      "f_FilterType" : "" 
+    } 
+  ],
+  "errcode" : 0,
+  "error" : "" 
+}

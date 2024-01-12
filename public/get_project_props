@@ -10,7 +10,10 @@
     "Code" : "01km_exp",
     "Version" : "1",
     "Name" : "1 км дороги",
-    "CurTime" : 1521187200 
+    "CurTime" : 1521187200,
+	"dataChanged" : 1521187200,
+	"numDashboardItems" : 1,
+	"WexbimPath": "1234"
   },
   "errcode" : 0,
   "error" : "" 

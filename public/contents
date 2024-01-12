@@ -1,10 +1,29 @@
 ﻿{
-  "Lang" : "ru",
-  "errcode" : 0,
+  "parameters" : {
+    "language" : "ru",
+    "timeDelim" : ":",
+    "dateDelim" : ".",
+    "chatPort" : "9000",
+    "apiPort" : "8080",
+    "dateFormat" : "",
+    "uploadTime" : 1656417766 
+  },
   "User" : {
     "Code" : "user",
     "Name" : "User" 
   },
+  "f_Storages" : [
+    {
+      "Code" : "A",
+      "Name" : "Хранилище A",
+      "Location" : "C:\\Users\\1395262\\Documents\\Spider Project\\Demo Projects\\" 
+    },
+    {
+      "Code" : "B",
+      "Name" : "Хранилище B",
+      "Location" : "C:\\Users\\1395262\\Documents\\Spider Project\\Demo Projects\\" 
+    } 
+  ],
   "Projects" : [
     "01km_exp.001.sprj",
     "01km_exp.002.sprj",
@@ -23,7 +42,15 @@
     "01km_pes.005.sprj",
     "074.001.sprj",
     "074.002.sprj",
+    "1dzyWEOh99jRUBVYP$exmF.001.sprj",
+    "1dzyWEOh99jRUBVYP$exmF.002.sprj",
+    "1dzyWEOh99jRUBVYP$exmF.003.sprj",
+    "1dzyWEOh99jRUBVYP$exmF.004.sprj",
+    "1km_road_api.001.sprj",
     "20201208FM_ARC_DigitalHub.001.sprj",
+    "2FIpK7_qD89BPKTFAGREfW.001.sprj",
+    "4285.002.sprj",
+    "4285_Выкса.002.sprj",
     "anewone.001.sprj",
     "asta02.001.sprj",
     "Building.001.sprj",
@@ -36,14 +63,604 @@
     "Constr_Invest.001.sprj",
     "cpc.002.sprj",
     "cpc_с_русскими_буквами.002.sprj",
+    "ifc-merge.001.sprj",
+    "ifc-merge.002.sprj",
+    "ifc-merge.003.sprj",
+    "institute.001.sprj",
     "Investment.001.sprj",
+    "marcus.001.sprj",
+    "MeuPredio2022-06.10000.sprj",
     "PP4.001.sprj",
+	"Ресурсы.001.sdoc" ,
+    "Project14.002.sprj",
+    "Project_Saga.001.sprj",
+    "Projekt_Buerogebaeude.001.sprj",
+    "Projekt_Buerogebaeude.002.sprj",
+    "Projekt_Buerogebaeude.003.sprj",
+    "Projekt_Buerogebaeude.004.sprj",
+    "Projekt_Buerogebaeude.005.sprj",
+    "Projekt_Buerogebaeude.007.sprj",
+    "Projekt_Buerogebaeude.014.sprj",
+    "Projekt_Buerogebaeude.015.sprj",
+    "Projekt_Buerogebaeude.016.sprj",
+    "Projekt_Buerogebaeude.020.sprj",
+    "Projekt_Buerogebaeude.050.sprj",
     "sava2021-08-04-2021.1000.sprj",
-    "SD.001.sprj" 
+    "SD.001.sprj",
+    "TOWER_TOTAL.001.sprj",
+    "Институт.001.sprj",
+    "П5.001.sprj",
+    "Портфель_Сроки.072.sprj",
+    "Проект.001.sprj",
+    "Проект10.001.sprj",
+    "Проект_Saga.001.sprj",
+    "склад.001.sprj",
+    {
+      "storageCode" : "A",
+      "fileName" : "01km_exp.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "01km_exp.002.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "01km_exp.003.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "01km_exp.004.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "01km_exp.005.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "01km_opt.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "01km_opt.002.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "01km_opt.003.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "01km_opt.004.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "01km_opt.005.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "01km_pes.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "01km_pes.002.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "01km_pes.003.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "01km_pes.004.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "01km_pes.005.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "074.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "074.002.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "1dzyWEOh99jRUBVYP$exmF.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "1dzyWEOh99jRUBVYP$exmF.002.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "1dzyWEOh99jRUBVYP$exmF.003.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "1dzyWEOh99jRUBVYP$exmF.004.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "1km_road_api.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "20201208FM_ARC_DigitalHub.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "2FIpK7_qD89BPKTFAGREfW.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "4285.002.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "4285_Выкса.002.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "anewone.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "asta02.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Building.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Building.002.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Building.003.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Building.004.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Building.005.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Building.006.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Building.007.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Constr_Invest.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "cpc.002.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "cpc_с_русскими_буквами.002.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "ifc-merge.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "ifc-merge.002.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "ifc-merge.003.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "institute.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Investment.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "marcus.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "MeuPredio2022-06.10000.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "PP4.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Project14.002.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Project_Saga.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Projekt_Buerogebaeude.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Projekt_Buerogebaeude.002.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Projekt_Buerogebaeude.003.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Projekt_Buerogebaeude.004.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Projekt_Buerogebaeude.005.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Projekt_Buerogebaeude.007.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Projekt_Buerogebaeude.014.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Projekt_Buerogebaeude.015.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Projekt_Buerogebaeude.016.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Projekt_Buerogebaeude.020.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Projekt_Buerogebaeude.050.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "sava2021-08-04-2021.1000.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "SD.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "TOWER_TOTAL.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Институт.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "П5.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Портфель_Сроки.072.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Проект.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Проект10.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "Проект_Saga.001.sprj" 
+    },
+    {
+      "storageCode" : "A",
+      "fileName" : "склад.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "01km_exp.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "01km_exp.002.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "01km_exp.003.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "01km_exp.004.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "01km_exp.005.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "01km_opt.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "01km_opt.002.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "01km_opt.003.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "01km_opt.004.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "01km_opt.005.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "01km_pes.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "01km_pes.002.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "01km_pes.003.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "01km_pes.004.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "01km_pes.005.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "074.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "074.002.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "1dzyWEOh99jRUBVYP$exmF.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "1dzyWEOh99jRUBVYP$exmF.002.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "1dzyWEOh99jRUBVYP$exmF.003.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "1dzyWEOh99jRUBVYP$exmF.004.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "1km_road_api.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "20201208FM_ARC_DigitalHub.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "2FIpK7_qD89BPKTFAGREfW.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "4285.002.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "4285_Выкса.002.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "anewone.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "asta02.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Building.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Building.002.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Building.003.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Building.004.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Building.005.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Building.006.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Building.007.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Constr_Invest.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "cpc.002.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "cpc_с_русскими_буквами.002.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "ifc-merge.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "ifc-merge.002.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "ifc-merge.003.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "institute.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Investment.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "marcus.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "MeuPredio2022-06.10000.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "PP4.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Project14.002.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Project_Saga.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Projekt_Buerogebaeude.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Projekt_Buerogebaeude.002.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Projekt_Buerogebaeude.003.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Projekt_Buerogebaeude.004.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Projekt_Buerogebaeude.005.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Projekt_Buerogebaeude.007.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Projekt_Buerogebaeude.014.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Projekt_Buerogebaeude.015.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Projekt_Buerogebaeude.016.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Projekt_Buerogebaeude.020.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Projekt_Buerogebaeude.050.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "sava2021-08-04-2021.1000.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "SD.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "TOWER_TOTAL.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Институт.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "П5.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Портфель_Сроки.072.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Проект.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Проект10.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Проект_Saga.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "склад.001.sprj" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "#test.001.sdoc" 
+    },
+    {
+      "storageCode" : "B",
+      "fileName" : "Ресурсы.001.sdoc" 
+    } 
   ],
   "Actions" : [
     { "Command": "OpenGanttOper", "Name": "Открыть Гантт Работ" },
     { "Command": "OpenDashboard", "Name": "Открыть Дэшборд" },
     { "Command": "OpenModel", "Name": "Открыть 3D-модель" } 
-  ] 
+  ],
+  "errcode" : 0,
+  "error" : "" 
 }

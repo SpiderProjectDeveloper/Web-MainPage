@@ -2,7 +2,8 @@
 import { displayErrorMessage, displayCurrentPage, clearErrorMessages } from './contents.js';
 import { setCookie } from './utils.js';
 
-export function login( loaderId, userId,  passId ) {
+export function login( loaderId, userId,  passId ) 
+{
 	clearErrorMessages();
 	
 	let userEl = document.getElementById(userId);
@@ -15,10 +16,10 @@ export function login( loaderId, userId,  passId ) {
 		displayErrorMessage( 'userNameError' );
 		return;
 	}
-	if( pass.length == 0 ) {
-		displayErrorMessage( 'passError' );
-		return;
-	}
+	// if( pass.length == 0 ) {
+	// 	displayErrorMessage( 'passError' );
+	// 	return;
+	// }
 
 	let loaderEl = document.createElement('div');
 	loaderEl.className = 'loader';
@@ -26,11 +27,15 @@ export function login( loaderId, userId,  passId ) {
 	loaderContainerEl.appendChild(loaderEl);
 
 	let xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function() {
-		if (this.readyState == 4 ) {
+	xmlhttp.onreadystatechange = function() 
+	{
+		if (this.readyState == 4 ) 
+		{
 			loaderContainerEl.removeChild(loaderEl);
-			if( this.status == 200 ) {
-				if( this.responseText !== "error" && this.responseText.length >= 30 ) {
+			if( this.status == 200 ) 
+			{
+				if( this.responseText !== "error" && this.responseText.length >= 30 ) 
+				{
 					_globals.user = user;
 					_globals.sessId = this.responseText;
 					setCookie( 'user', user );

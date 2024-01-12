@@ -1,0 +1,33 @@
+﻿
+
+<html>
+
+<head>
+</head>
+
+<body>
+
+<div id="res">
+
+</div>
+
+<script>
+
+let projectId = window.location.search;
+
+fetch(`/.sdoc_data${projectId}`).
+	then( (r) => {
+		return r.json();
+	} ).
+	then( (r) => {
+		document.getElementById('res').innerHTML = r;
+	} ).
+	catch( (e) => {
+		document.getElementById('res').innerHTML = 'ERROR!';
+	} );
+
+</script>
+
+</body>
+
+</html>

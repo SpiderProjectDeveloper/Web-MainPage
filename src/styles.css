@@ -87,6 +87,14 @@
 	} 
 	a { font-size:100%; text-decoration:none; color:#3498db; }
 
+	.project-menu-gantt-structs {
+		font-size:90%; margin:0px 0px 2px 0px; padding:0; color:#3498db;
+	} 
+
+	.project-menu-expand-gantt-structs {
+		font-size:90%; margin:0px 0px 4px 0px; font-variant:small-caps; font-weight:normal; text-decoration:none; color:#4f4f4f;
+	} 
+
 	.project-menu-calendar {
 		position:relative; left:1.5em; background-color: #efefef;
 	}
@@ -115,4 +123,12 @@
 	@keyframes spin {
 		0% { transform: rotate(0deg); }
 		100% { transform: rotate(360deg); }
+	}
+
+	#ifcimport {
+		margin-top: 24px;
+	}
+
+	#ifccreateproject {
+		margin-top: 4px;
 	}

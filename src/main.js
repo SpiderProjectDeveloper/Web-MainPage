@@ -12,7 +12,67 @@ function appendProjectMenuTitle( projectMenuEl, title ) {
 	projectMenuEl.appendChild(divEl);
 }
 
-function appendProjectMenuInputLink( projectMenuEl, projectId, curTime, linkKey ) {
+function appendGanttStructs( structs, parent, projectId ) 
+{
+	for( let struct of structs ) {
+		let aEl = document.createElement('a');
+		let node = document.createTextNode( struct['Name'] );
+		aEl.appendChild( node );
+		aEl.className = 'project-menu-a';
+		let code = struct['Code'];
+		let href = `/gantt/index.html?projectId=${projectId}&structCode=${code}`;
+		aEl.href = href;
+		aEl.onclick = function(e) { e.preventDefault(); checkAuthorizedAndProceed( href ); };
+		parent.appendChild(aEl);
+	}
+}
+
+function appendProjectMenuGetGanttStructsButton( projectMenuEl, projectId, linkKey ) 
+{
+	let divEl = document.createElement('div');
+	divEl.className = 'project-menu-gantt-structs';
+
+	let aEl = document.createElement('a');
+	aEl.dataset.dynamicText = 'get-gantt-structs';
+	let node = document.createTextNode( getDynamicText('get-gantt-structs') );
+	aEl.appendChild( node );
+	aEl.className = 'project-menu-expand-gantt-structs';
+	//let href = `/${dir}/index.html?${projectId}`;
+	aEl.href = '#';
+	aEl.onclick = function(e) 
+	{ 
+		e.preventDefault(); 
+		let xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() 
+		{
+			if (xhttp.readyState == 4 ) {
+				if( xhttp.status != 200 || !('responseText' in xhttp) || xhttp.responseText === null || xhttp.responseText.length === 0 ) {
+					return;
+				}
+				divEl.removeChild( divEl.lastChild );
+				try {
+					let structs = JSON.parse( xhttp.responseText );
+					appendGanttStructs( structs['Activity'], divEl, projectId );
+				} catch(e) { return;	}
+			}
+		}
+		xhttp.open("GET", '/.get_gantt_structs?' + encodeURIComponent(projectId), true);
+		xhttp.send();			
+	};
+
+	divEl.appendChild( aEl );
+
+	projectMenuEl.appendChild(divEl);
+	projectMenuEl[linkKey] = true;
+	//projectMenuEl.appendChild(document.createElement('br'));
+}
+
+
+function appendProjectMenuInputLink( projectMenuEl, projectId, curTime, linkKey, props ) 
+{
+	if( 'project' in props && 'CurTime' in props.project ) {										
+		projectMenuEl[linkKey] = false;
+	}
 	let aEl = document.createElement('a');
 	aEl.dataset.dynamicText = 'input';
 	let node = document.createTextNode( getDynamicText('input') );
@@ -59,15 +119,38 @@ function appendProjectMenuInputLink( projectMenuEl, projectId, curTime, linkKey 
 
 	projectMenuEl[linkKey] = true;
 	projectMenuEl.appendChild(document.createElement('br'));
+	projectMenuEl.appendChild(document.createElement('br'));
+	projectMenuEl.appendChild(document.createElement('hr'));
 }
 
-function appendProjectMenuLink( projectMenuEl, dir, projectId, linkKey ) {
+function appendProjectMenuLink( projectMenuEl, dir, projectId, linkKey, props ) 
+{
+	projectMenuEl[linkKey] = false;
+	let href = `/${dir}/index.html`;
+	if( dir === 'gantt' ) {
+		href += `?projectId=${projectId}`;
+		if( 'project' in props && 'dataChanged' in props.project ) {
+			href += `&dataChanged=${props.project.dataChanged}`;
+		}
+	} else if ( dir === 'dashboard' ) {	
+		//if( !('project' in props) )
+		//	return;
+		//if( !('numDashboardItems' in props.project ) || props.project.numDashboardItems === 0 || props.project.numDashboardItems === '' ) 
+		//	return;
+		href += `?${projectId}`;	
+	} else if( dir === 'ifc' ) {
+		if( !('project' in props) || !('IFCPath' in props.project) || !props.project.IFCPath ) {
+			return;
+		}		
+		href += `?${projectId}`;	
+	} else if ( dir === 'ifccreateproject' || dir === 'sdoc' ) {	
+		href += `?${projectId}`;	
+	} 
 	let aEl = document.createElement('a');
 	aEl.dataset.dynamicText = dir;
 	let node = document.createTextNode( getDynamicText(dir) );
 	aEl.appendChild( node );
 	aEl.className = 'project-menu-a';
-	let href = `/${dir}/index.html?${projectId}`;
 	aEl.href = href;
 	aEl.onclick = function(e) { e.preventDefault(); checkAuthorizedAndProceed( href ); };
 	projectMenuEl.appendChild(aEl);
@@ -75,7 +158,8 @@ function appendProjectMenuLink( projectMenuEl, dir, projectId, linkKey ) {
 	projectMenuEl.appendChild(document.createElement('br'));
 }
 
-export function loadMainContents() {
+export function loadMainContents() 
+{
 	clearErrorMessages();
 
 	let loaderEl = document.createElement('div');
@@ -119,10 +203,37 @@ export function loadMainContents() {
 					}
 					setDateFormat(data.parameters);
 				}
+				let storages = null;
+				if( 'f_Storages' in data ) 
+				{ 		// If a list of storages is passed
+					for( let storage of data['f_Storages'] ) {
+						if( typeof(storage) !== 'object' ) continue;
+						if( !('Code' in storage) || !('Name' in storage) || !('Location') in storage ) continue;
+						if( storages === null ) storages = {};
+						storages[ storage['Code'] ] = { name: storage['Name'], location: storage['Location'] };
+					}
+				}
 				containerEl.innerHTML = '';					
 				for( let i = 0 ; i < data.Projects.length ; i++ ) {
-					let projectTitle = data.Projects[i];
-					let projectId = data.Projects[i]; 
+					let projectId = null;
+					let projectTitle = null;
+					let project = data.Projects[i];
+					if( typeof(project) === 'string' ) { 	// The default storage - only project name is passed
+						projectId = project; 
+						projectTitle = convertToReadableProjectTitle(project);
+					}	else {	// Multiple storages. A list of storages must be passed
+						if( storages !== null && typeof(project) === 'object' ) {							
+							if( 'storageCode' in project && 'fileName' in project ) {
+								let storageCode = project['storageCode'];
+								if( storageCode in storages ) {
+									projectId = storageCode + "/" + project['fileName'];
+									projectTitle = storages[storageCode].name + ": " + 
+										convertToReadableProjectTitle(project['fileName']);
+								}
+							} 
+						}	
+					}
+					if( projectId === null || projectTitle === null ) return;
 				
 					let projectContainerEl = document.createElement('div');
 					containerEl.appendChild(projectContainerEl);
@@ -142,9 +253,15 @@ export function loadMainContents() {
 					projectMenuEl.className = 'project-menu';
 					projectMenuEl.style.display = 'none';
 
-					projectTitleEl.onclick = function(e) {
-						onProjectMenuTitle( projectMenuEl, projectId, projectTitlePrefixId );
-					};
+					if( projectId.endsWith('sdoc') ) {
+						projectTitleEl.onclick = function(e) {
+							onSDocMenuTitle( projectMenuEl, projectId, projectTitlePrefixId );
+						}
+					} else {
+						projectTitleEl.onclick = function(e) {
+							onProjectMenuTitle( projectMenuEl, projectId, projectTitlePrefixId );
+						};
+					}
 				}
       } 
 	  }
@@ -217,24 +334,31 @@ function onProjectMenuTitle( projectMenuEl, projectId, projectTitlePrefixId ) {
 							if( 'project' in props && 'Name' in props.project ) {
 								appendProjectMenuTitle(projectMenuEl, props.project.Name );
 							} 
-							appendProjectMenuLink( projectMenuEl, 'gantt', projectId, '__myHasGanttLink' );
-							appendProjectMenuLink( projectMenuEl, 'dashboard', projectId, '__myHasHashboardLink');
-							if( 'project' in props && 'WexbimPath' in props.project && props.project.WexbimPath.length > 0) {
-								appendProjectMenuLink(projectMenuEl, 'ifc', projectId, '__myHasIfcLink' );
-							} else {
-								projectMenuEl.__myHasIfcLink = false;
-							}
-							if( 'project' in props && 'CurTime' in props.project ) {										
-								appendProjectMenuInputLink( projectMenuEl, projectId, props.project.CurTime, '__myHasInputLink' );
-							} else {
-								projectMenuEl.__myInputIfcLink = false;
-							}
+							appendProjectMenuLink( projectMenuEl, 'gantt', projectId, '__myHasGanttLink', props );
+							appendProjectMenuGetGanttStructsButton( projectMenuEl, projectId, '__myHasGetStructsButton' );
+							appendProjectMenuLink( projectMenuEl, 'dashboard', projectId, '__myHasDashboardLink', props );
+							appendProjectMenuLink(projectMenuEl, 'ifc', projectId, '__myHasIfcLink', props );
+							appendProjectMenuInputLink( projectMenuEl, projectId, props.project.CurTime, '__myHasInputLink', props );
+							appendProjectMenuLink(projectMenuEl, 'ifccreateproject', projectId, '__myHasIfcCreateProjectLink', props );
 						}
 					}
 				}
 			} 
 			xhttpProps.open( 'GET', '/.get_project_props?'+projectId, true );
 			xhttpProps.send();
+		}
+	} else {
+		projectMenuEl.style.display = 'none';
+		document.getElementById(projectTitlePrefixId).innerHTML = '&plus;&nbsp;';
+	}
+}
+
+function onSDocMenuTitle( projectMenuEl, projectId, projectTitlePrefixId ) {
+	if( projectMenuEl.style.display==='none' ) {
+		projectMenuEl.style.display = 'block';
+		document.getElementById(projectTitlePrefixId).innerHTML = '&minus;&nbsp;';
+		if( typeof(projectMenuEl.__mySDoc) === 'undefined' ) {
+			appendProjectMenuLink( projectMenuEl, 'sdoc', projectId, '__mySDoc', {} ); 
 		}
 	} else {
 		projectMenuEl.style.display = 'none';
@@ -265,3 +389,13 @@ function callCalendar( input, container ) {
 		34, 24, d.date, _lang ); 
 }
 
+function convertToReadableProjectTitle( projectFileName ) {
+	let lastDotPos = projectFileName.lastIndexOf('.sprj');
+	if( lastDotPos === -1 ) return projectFileName; 
+	let lastButOneDotPos = 	projectFileName.lastIndexOf('.', lastDotPos - 1 );
+	if( lastButOneDotPos === -1 ) return projectFileName; 
+	let version = projectFileName.substring( lastButOneDotPos+1, lastDotPos );
+	if( version === null || version.length === 0 ) return projectFileName; 
+	let title = projectFileName.substring( 0, lastButOneDotPos ) + ` (${version})`;
+	return title;
+}
